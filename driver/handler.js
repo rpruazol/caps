@@ -14,3 +14,5 @@ function pickupConfirmation(payload) {
   eventEmitter.emit('in-transit', payload, 'in-transit');
   eventEmitter.emit('delivered', payload, 'in-transit');
 }
+
+module.exports = pickupConfirmation;
