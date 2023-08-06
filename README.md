@@ -16,7 +16,7 @@
 
 - `npm start`
 - Endpoint: `/status`
-  - Returns console.log of a preset example order
+  - Returns console.log of a preset example order 
 
 ```javascript
 EVENT {
