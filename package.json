@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node hub.js",
     "test": "jest"
   },
   "author": "",

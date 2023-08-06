@@ -6,7 +6,7 @@
 const eventEmitter = require('../eventPool.js');
 const pickupConfirmation = require('./handler.js')
 
-const randomOrder = require('../vendor/customer.js');
+const Order = require('../vendor/customer.js');
 
 
 describe('event emitter for order pickup', () => {
@@ -26,7 +26,7 @@ describe('event emitter for order pickup', () => {
   })
 
   it('pick up an order', async () => {
-    let order = randomOrder('amazon');
+    let order = new Order('amazon');
     pickupConfirmation(order);
     expect(consoleSpy).toHaveBeenCalled();
     expect(emitSpy).toHaveBeenCalledWith('in-transit', order, 'in-transit');
