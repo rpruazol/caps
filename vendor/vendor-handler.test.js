@@ -22,7 +22,6 @@ describe('event emitter for order pickup', () => {
 
   it('pick up an order', () => {
     vendorOrder('amazon');
-    expect(consoleSpy).toHaveBeenCalled();
     expect(orderSpy).toHaveBeenCalled();
   })
 })

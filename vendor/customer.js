@@ -5,15 +5,13 @@ const chance = new Chance();
 const uuid = require('uuid');
 
 
-function randomOrder(storename){
-  const payload = {
-    store: storename,
-    orderId: uuid.v4(),
-    customer: `${chance.first({nationality: 'en'})} ${chance.last({nationality: 'en'})}`,
-    address: `${chance.address()} ${chance.city()}, ${chance.state({ country: 'us' })}, ${chance.zip()}`
+class Order{
+  constructor(storename){
+    this.store = storename,
+    this.orderId = uuid.v4(),
+    this.customer = `${chance.first({nationality: 'en'})} ${chance.last({nationality: 'en'})}`,
+    this.address = `${chance.address()} ${chance.city()}, ${chance.state({ country: 'us' })}, ${chance.zip()}`
   }
-  return payload;
-
 }
 
-module.exports = randomOrder;
+module.exports = Order;

@@ -1,15 +1,13 @@
 'use strict';
 
 const eventEmitter = require('../eventPool.js');
-const randomOrder = require('./customer.js');
+const Order = require('./customer.js');
 
 // eventEmitter.on('pickup', vendorOrder);
 eventEmitter.on('delivered', deliveredOrder);
 
 function vendorOrder(vendor) {
-  console.log('hello world');
-  const order = randomOrder(vendor);
-  eventEmitter.emit('pickup', order, 'pickup');
+  eventEmitter.emit('pickup', new Order(vendor), 'pickup');
 }
 
 function deliveredOrder(payload) {
