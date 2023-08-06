@@ -12,6 +12,7 @@ describe('event emitter for order pickup', () => {
   
   beforeEach(() => {
     consoleSpy = jest.spyOn(console, 'log').mockImplementation();
+    orderSpy = jest.spyOn(eventEmitter, 'emit');
   });
 
 
@@ -20,7 +21,8 @@ describe('event emitter for order pickup', () => {
   })
 
   it('pick up an order', () => {
-    vendorOrder('amazon')
-    expect(consoleSpy).toHaveBeenCalledWith('hello world')
+    vendorOrder('amazon');
+    expect(consoleSpy).toHaveBeenCalled();
+    expect(orderSpy).toHaveBeenCalled();
   })
 })
