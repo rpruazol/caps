@@ -2,7 +2,7 @@
 
 ## Deployment Test
 
-### Author: John Cokos
+### Author: Ray Ruazol
 
 - [tests report](https://github.com/codefellows/code-401-javascript-example-lab/actions)
 
