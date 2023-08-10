@@ -1,18 +1,15 @@
 'use strict';
 
-
-const eventEmitter = require('../eventPool.js');
-
-
-eventEmitter.on('pickup', pickupConfirmation);
+const {io} = require('socket.io-client');
+const socket = io('ws://localhost:3000/caps');
 
 
 
-function pickupConfirmation(payload) {
-  console.log(`DRIVER: picked up ${payload.orderId}`)
-  
-  eventEmitter.emit('in-transit', payload, 'in-transit');
-  eventEmitter.emit('delivered', payload, 'delivered');
-}
+socket.on("pickup", (payload) => {
+  console.log(`picking up ${payload.vendorId}`)
+  socket.emit('in-transit', payload);
+  socket.emit('delivered', payload)
+})
 
-module.exports = pickupConfirmation;
+
+// module.exports = pickupConfirmation;

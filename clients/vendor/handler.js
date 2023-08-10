@@ -4,26 +4,19 @@ const Order = require('./customer.js');
 
 const {io} = require('socket.io-client');
 
-const socket = io('ws://localhost:3000/caps');
-console.log(socket)
-// socket.on('connect', () => {
-//   console.log('socket')
-//   // socket.on('pickup', vendorOrder);
-//   socket.on('delivered', deliveredOrder);
-// })
+const client = io('ws://localhost:3000/caps');
 
-
-// function vendorOrder(vendor) {
-//   console.log('order sent!')
-//   socket.emit('pickup', new Order(vendor));
-// }
+client.on('delivered', deliveredOrder)
 
 function deliveredOrder(payload) {
   console.log(`Thank you for your order, ${payload.customer}!`);
 }
 
-setInterval(() => {
-  socket.emit('pickup', new Order('1-206-flowers'))
-}, 2000);
+client.on('in-transit', (payload) => {
+  console.log('on the way!')
+})
+// setInterval(() => {
+// }, 10000);
 
+client.emit('pickup', new Order('1-206-flowers'))
 // module.exports = { vendorOrder, deliveredOrder };
