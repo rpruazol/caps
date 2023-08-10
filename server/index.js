@@ -3,12 +3,17 @@
 
 const {Server} = require('socket.io');
 
-const io = new Server(3000);
+const io = new Server();
+
+io.listen(3000);
 
 const caps = io.of('/caps');
 
 caps.on('connection', (socket) => {
   console.log('client connected.  id>>', socket.id);
+  socket.on('pickup', (socket) => {
+    console.log('order received', socket)
+  })
 });
 
 
