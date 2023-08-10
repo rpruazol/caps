@@ -8,7 +8,11 @@ const socket = io('ws://localhost:3000/caps');
 socket.on("pickup", (payload) => {
   console.log(`picking up ${payload.vendorId}`)
   socket.emit('in-transit', payload);
-  socket.emit('delivered', payload)
+  setTimeout(() => {
+    console.log('delivered')
+    socket.emit('delivered', payload)
+  }, 2000)
+  
 })
 
 
