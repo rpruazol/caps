@@ -16,7 +16,6 @@ describe('event emitter for order pickup', () => {
   
   beforeEach(() => {
     consoleSpy = jest.spyOn(console, 'log').mockImplementation();
-    // orderSpy = jest.spyOn(pickupConfirmation, 'payload').mockImplementation();
     emitSpy = jest.spyOn(eventEmitter, 'emit').mockImplementation();
   });
 
