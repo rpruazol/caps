@@ -1,12 +1,5 @@
 'use strict';
 
-const eventEmitter = require('./eventPool.js');
-
-eventEmitter.on('pickup', logger)
-eventEmitter.on('delivered', logger)
-eventEmitter.on('in-transit', logger)
-
-
 function logger(payload, event){
   const log = {
     event,
@@ -16,3 +9,5 @@ function logger(payload, event){
 
   console.log('EVENT', log);
 }
+
+module.exports = logger
