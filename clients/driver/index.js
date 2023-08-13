@@ -17,7 +17,7 @@ client.on(pickup, (payload) => {
   pickupConfirmation(payload, client)
   setTimeout(() => {
     deliveredConfirmation(payload, client)}
-    , 1000);
+    , 5000);
 });
 
 
