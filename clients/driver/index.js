@@ -12,6 +12,12 @@ const client = io(
   }
   );
 
+  function init(){
+    console.log('driver initial connection')
+    client.emit('getAll');
+  }
+  
+  init();
 
 client.on(pickup, (payload) => {
   pickupConfirmation(payload, client)
